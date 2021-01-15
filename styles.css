@@ -124,4 +124,26 @@ body .score {
 .won-box.active {
   opacity: 1;
 }
+
+@media (max-width: 800px) {
+  body {
+    padding: 10px;
+  }
+  body h1 {
+    text-align: center;
+  }
+  .game-container {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    background-color: transparent;
+  }
+  .won-box h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+}
 /*# sourceMappingURL=styles.css.map */

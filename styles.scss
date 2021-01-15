@@ -83,3 +83,24 @@ body {
 .won-box.active {
     opacity: 1;
 }
+
+@media(max-width: 800px) {
+    body {
+        padding: 10px;
+        h1 {
+            text-align: center;
+        }
+    }
+
+    .game-container {
+        width: 100%;
+        justify-content: center;
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+    .won-box h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+}

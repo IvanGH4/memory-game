@@ -87,7 +87,7 @@ function flipCard() {
     this.src = options[cardId].img;
 
     if(chosenCard.length === 2) {
-        setTimeout(checkMatch, 200);
+        setTimeout(checkMatch, 350);
     }
 }
 
