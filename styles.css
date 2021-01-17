@@ -30,7 +30,7 @@ body h1 {
   color: #fff;
 }
 
-body .score {
+body .score, body .time {
   font-family: 'Poppins', sans-serif;
   color: #fff;
   font-size: 20px;

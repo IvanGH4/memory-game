@@ -1,7 +1,9 @@
 const gameContainer = document.querySelector('.game-container');
 const wonBox = document.querySelector('.won-box');
 const btn = document.querySelector('.btn');
+const message = document.querySelector('#message');
 const score = document.querySelector('.score');
+const timerEl = document.querySelector('#timer');
 
 btn.addEventListener('click', () => {
     wonBox.classList.remove('active');
@@ -66,6 +68,9 @@ const defaultImg = './images/question.svg';
 let chosenCard = [];
 let chosenCardId = [];
 let cardsWon = [];
+
+let won = false;
+
 createGameTable();
 
 function createGameTable() {
@@ -77,6 +82,8 @@ function createGameTable() {
         card.addEventListener('click', flipCard);
         gameContainer.appendChild(card);
     }
+
+    countdown();
 }
 
 function flipCard() {
@@ -106,9 +113,40 @@ function checkMatch() {
     }
 
     if(cardsWon.length === options.length / 2) {
+        won = true;
+        message.innerText = 'Congratulations! You won!';
+        btn.innerText = 'Play Again';
         wonBox.classList.add('active');
     }
 
     chosenCard = [];
     chosenCardId = [];
+}
+
+function countdown() {
+    let seconds = +timerEl.innerText;
+
+    const timer = setInterval(() => {
+
+        seconds--;
+
+        if(seconds < 10 && seconds >= 0) {
+            seconds = `0${seconds}`;
+        }
+
+        if(seconds <= 0) {
+            clearInterval(timer);
+            
+            message.innerText = 'You ran out of time!';
+            btn.innerText = 'Try Again';
+            wonBox.classList.add('active'); 
+        }
+
+        if(won) {
+            clearInterval(timer);
+        }
+
+        timerEl.innerText = seconds;
+
+    }, 1000);
 }
